@@ -3,7 +3,11 @@ image: Visual Studio 2017
 environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  CAKE_VERSION: 0.23.0
 test: off
 deploy: off
 build_script:
-- cmd: dotnet run --project Cake.CoreCLR.Runner.csproj --target "Default" --configuration "Release"
+- cmd: >-
+    dotnet add Cake.CoreCLR.Runner.csproj package Cake.CoreCLR -v %CAKE_VERSION% --package-directory tools/Cake.CoreCLR.%CAKE_VERSION%
+
+    dotnet tools/Cake.CoreCLR.%CAKE_VERSION%/cake.coreclr/%CAKE_VERSION%/Cake.dll --target "Default" --configuration "Release"
