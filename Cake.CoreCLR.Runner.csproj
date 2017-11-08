@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <StartupObject>Cake.Program</StartupObject>
+    <StartupObject>Cake.CoreCLR.Runner.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.CoreCLR" Version="0.23.0" />
