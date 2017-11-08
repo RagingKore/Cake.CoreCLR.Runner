@@ -1,0 +1,9 @@
+version: '{build}'
+image: Visual Studio 2017
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+test: off
+deploy: off
+build_script:
+- cmd: dotnet run --project Cake.CoreCLR.Runner.csproj --target "Default" --configuration "Release"
