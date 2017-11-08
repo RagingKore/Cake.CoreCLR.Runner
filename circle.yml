@@ -7,7 +7,7 @@ jobs:
     environment:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
-      - CAKE_VERSION: 0.23.0
+      CAKE_VERSION: 0.23.0
     steps:
       - checkout
       - run: dotnet add tools/tools.csproj package Cake.CoreCLR -v $CAKE_VERSION --package-directory tools/Cake.CoreCLR.$CAKE_VERSION
