@@ -6,7 +6,9 @@ env:
   global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
     - DOTNET_CLI_TELEMETRY_OPTOUT=1
+    - CAKE_VERSION: 0.23.0
 mono: latest
 dotnet: 2.0.0
 script:
-  - dotnet run --project Cake.CoreCLR.Runner.csproj --target "Default" --configuration "Release"
+  - dotnet add tools/tools.csproj package Cake.CoreCLR -v $CAKE_VERSION --package-directory tools/Cake.CoreCLR.$CAKE_VERSION
+  - dotnet tools/Cake.CoreCLR.$CAKE_VERSION/cake.coreclr/$CAKE_VERSION/Cake.dll build.cake -target="Default" -configuration="Release"
