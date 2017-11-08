@@ -10,4 +10,4 @@ build_script:
 - cmd: >-
     dotnet add Cake.CoreCLR.Runner.csproj package Cake.CoreCLR -v %CAKE_VERSION% --package-directory tools/Cake.CoreCLR.%CAKE_VERSION%
 
-    dotnet tools/Cake.CoreCLR.%CAKE_VERSION%/cake.coreclr/%CAKE_VERSION%/Cake.dll --target "Default" --configuration "Release"
+    dotnet tools/Cake.CoreCLR.%CAKE_VERSION%/cake.coreclr/%CAKE_VERSION%/Cake.dll build.cake --target "Default" --configuration "Release"
